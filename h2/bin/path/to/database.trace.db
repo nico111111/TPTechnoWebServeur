@@ -1,0 +1,111 @@
+2019-12-02 10:06:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "EXEC[*]
+"; attendu "EXPLAIN, EXECUTE"
+Syntax error in SQL statement "EXEC[*]
+"; expected "EXPLAIN, EXECUTE"; SQL statement:
+exec
+ [42001-200]
+2019-12-02 10:07:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "LS[*]
+"
+Syntax error in SQL statement "LS[*]
+"; SQL statement:
+ls
+ [42000-200]
+2019-12-02 10:07:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "EXEC[*] TEST.SQL"; attendu "EXPLAIN, EXECUTE"
+Syntax error in SQL statement "EXEC[*] TEST.SQL"; expected "EXPLAIN, EXECUTE"; SQL statement:
+exec test.sql [42001-200]
+2019-12-02 10:08:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "CREATE TABLE ELEMENT
+(
+	ID INTEGER,
+    NOM TEXT,
+    QTITY INTEGER,
+	IDLISTE INTEGER,
+    PRIMARY KEY(ID),
+    FOREIGN KEY(IDLISTE) REFERENCES LISTE(ID)
+[*]"; attendu "INDEX, ON, NOT, DEFERRABLE, NOCHECK, CHECK, ,, )"
+Syntax error in SQL statement "CREATE TABLE ELEMENT
+(
+	ID INTEGER,
+    NOM TEXT,
+    QTITY INTEGER,
+	IDLISTE INTEGER,
+    PRIMARY KEY(ID),
+    FOREIGN KEY(IDLISTE) REFERENCES LISTE(ID)
+[*]"; expected "INDEX, ON, NOT, DEFERRABLE, NOCHECK, CHECK, ,, )"; SQL statement:
+CREATE TABLE Element
+(
+	id INTEGER,
+    nom TEXT,
+    qtity INTEGER,
+	idliste INTEGER,
+    PRIMARY KEY(id),
+    FOREIGN KEY(idliste) REFERENCES Liste(id)
+ [42001-200]
+2019-12-02 10:08:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "CREATE TABLE ELEMENT
+(
+	ID INTEGER,
+    NOM TEXT,
+    QTITY INTEGER,
+	IDLISTE INTEGER,
+    PRIMARY KEY(ID),
+    FOREIGN KEY(IDLISTE) REFERENCES LISTE(ID)
+OUI[*]
+"; attendu "INDEX, ON, NOT, DEFERRABLE, NOCHECK, CHECK, ,, )"
+Syntax error in SQL statement "CREATE TABLE ELEMENT
+(
+	ID INTEGER,
+    NOM TEXT,
+    QTITY INTEGER,
+	IDLISTE INTEGER,
+    PRIMARY KEY(ID),
+    FOREIGN KEY(IDLISTE) REFERENCES LISTE(ID)
+OUI[*]
+"; expected "INDEX, ON, NOT, DEFERRABLE, NOCHECK, CHECK, ,, )"; SQL statement:
+CREATE TABLE Element
+(
+	id INTEGER,
+    nom TEXT,
+    qtity INTEGER,
+	idliste INTEGER,
+    PRIMARY KEY(id),
+    FOREIGN KEY(idliste) REFERENCES Liste(id)
+oui
+ [42001-200]
+2019-12-02 10:09:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LISTE" non trouvée
+Table "LISTE" not found; SQL statement:
+CREATE TABLE Element(id INTEGER,nom TEXT,qtity INTEGER,idliste INTEGER,PRIMARY KEY(id),FOREIGN KEY(idliste) REFERENCES Liste(id)) [42102-200]
+2019-12-02 10:13:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Type de données inconnu: "INTEGERPRIMARY"
+Unknown data type: "INTEGERPRIMARY"; SQL statement:
+CREATE TABLE Element(titre TEXT,description TEXT,datecreation TEXT,datedernieremodif TEXT,qtity INTEGER,id INTEGER,idliste INTEGERPRIMARY KEY(id),FOREIGN KEY(idliste) REFERENCEES Liste(id)) [50004-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:5971)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5697)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8442)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8379)
+	at org.h2.command.Parser.parseCreate(Parser.java:6276)
+	at org.h2.command.Parser.parsePrepared(Parser.java:903)
+	at org.h2.command.Parser.parse(Parser.java:843)
+	at org.h2.command.Parser.parse(Parser.java:815)
+	at org.h2.command.Parser.prepareCommand(Parser.java:738)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.h2.tools.Shell.execute(Shell.java:470)
+	at org.h2.tools.Shell.promptLoop(Shell.java:295)
+	at org.h2.tools.Shell.runTool(Shell.java:152)
+	at org.h2.tools.Shell.main(Shell.java:81)
+2019-12-02 10:13:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "CREATE TABLE ELEMENT(TITRE TEXT,DESCRIPTION TEXT,DATECREATION TEXT,DATEDERNIEREMODIF TEXT,QTITY INTEGER,ID INTEGER,IDLISTE INTEGER,PRIMARY KEY(ID),FOREIGN KEY(IDLISTE) REFERENCEES[*] LISTE(ID))"; attendu "INDEX, REFERENCES"
+Syntax error in SQL statement "CREATE TABLE ELEMENT(TITRE TEXT,DESCRIPTION TEXT,DATECREATION TEXT,DATEDERNIEREMODIF TEXT,QTITY INTEGER,ID INTEGER,IDLISTE INTEGER,PRIMARY KEY(ID),FOREIGN KEY(IDLISTE) REFERENCEES[*] LISTE(ID))"; expected "INDEX, REFERENCES"; SQL statement:
+CREATE TABLE Element(titre TEXT,description TEXT,datecreation TEXT,datedernieremodif TEXT,qtity INTEGER,id INTEGER,idliste INTEGER,PRIMARY KEY(id),FOREIGN KEY(idliste) REFERENCEES Liste(id)) [42001-200]
